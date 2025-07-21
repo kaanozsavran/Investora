@@ -2,7 +2,6 @@ import React from "react";
 import {
   AppBar,
   Toolbar,
-  Typography,
   Button,
   Box,
   IconButton,
@@ -33,7 +32,20 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#0A1F44" }}>
+    <AppBar
+      position="static"
+      elevation={0}
+      sx={{
+        backgroundColor: "rgba(10, 31, 68, 0.8)",
+        backdropFilter: "blur(10px)",
+        marginTop: "10px",
+        borderRadius: "12px", // sadece alt köşeleri yuvarla
+        paddingX: 2,
+        paddingY: 1,
+        boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+        overflow: "hidden",
+      }}
+    >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         {/* Logo büyük ekranlarda göster */}
         <Box
@@ -41,9 +53,10 @@ const Navbar = () => {
           src={investoraLogo}
           alt="Investora Logo"
           sx={{
-            height: 65,
-            width: 70,
+            height: 60,
+            width: 65,
             display: { xs: "none", sm: "block" },
+            borderRadius: 1,
           }}
         />
 
@@ -99,7 +112,11 @@ const Navbar = () => {
               component={Link}
               to={page.path}
               color="inherit"
-              sx={{ textTransform: "none", fontWeight: "bold" }}
+              sx={{
+                textTransform: "none",
+                fontWeight: "bold",
+                mx: 1,
+              }}
             >
               {page.label}
             </Button>
