@@ -4,12 +4,73 @@ import Navbar from "./components/Navbar";
 import LightRays from "./components/LightRays";
 import { Box } from "@mui/material";
 import "./css/LightRays.css";
+import TextType from "./components/TextType";
+import "./css/TextType.css";
+import BlurText from "./components/BlurText";
+import "./css/BlurText.css";
+
+const handleAnimationComplete = () => {
+  console.log("Animation completed!");
+};
 
 // Geçici boş sayfalar:
 const Stocks = () => <div>Hisseler</div>;
 const Favorites = () => <div>Favoriler</div>;
 const Convert = () => <div>Dönüştürücü</div>;
 const About = () => <div>Hakkında</div>;
+
+// Ana sayfa komponenti - yazıları burada göster
+const HomePage = () => {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 10,
+      }}
+    >
+      {/* BlurText başlık olarak */}
+      <BlurText
+        text="INVESTORA"
+        className="main-title"
+        delay={100}
+        animateBy="words"
+        direction="top"
+        onAnimationComplete={handleAnimationComplete}
+      />
+
+      {/* TextType ön planda */}
+      <div
+        style={{
+          marginTop: "0.5rem",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TextType
+          text={["Yatırım stratejisi, verinin gücüyle yazılır."]}
+          typingSpeed={75}
+          pauseDuration={2000}
+          deletingSpeed={50}
+          loop={true}
+          forceLoop={true}
+          showCursor={true}
+          cursorCharacter="|"
+          className="main-text-type"
+        />
+      </div>
+    </div>
+  );
+};
 
 function App() {
   return (
@@ -21,7 +82,7 @@ function App() {
           height: "100vh",
           position: "relative",
           overflow: "hidden",
-          backgroundColor: "#0f0f1f", // koyu gece rengi gibi bir ton
+          backgroundColor: "#0f0f1f",
         }}
       >
         <LightRays
@@ -38,7 +99,7 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/stocks" element={<Stocks />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/convert" element={<Convert />} />
