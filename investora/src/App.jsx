@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import LightRays from "./components/LightRays";
 import { Box } from "@mui/material";
@@ -8,6 +7,8 @@ import TextType from "./components/TextType";
 import "./css/TextType.css";
 import BlurText from "./components/BlurText";
 import "./css/BlurText.css";
+import GetStartedButton from "./components/GetStartedButton";
+import LearnMoreButton from "./components/LearnMoreButton";
 
 const handleAnimationComplete = () => {
   console.log("Animation completed!");
@@ -21,6 +22,23 @@ const About = () => <div>Hakkında</div>;
 
 // Ana sayfa komponenti - yazıları burada göster
 const HomePage = () => {
+  // Buton fonksiyonları
+  const handleGetStarted = () => {
+    console.log("Get Started clicked!");
+    // Buraya istediğin işlemi yaz:
+    // - Kayıt sayfasına yönlendir
+    // - Modal aç
+    // - Dashboard'a git vb.
+  };
+
+  const handleLearnMore = () => {
+    console.log("Learn More clicked!");
+    // Buraya istediğin işlemi yaz:
+    // - About sayfasına git
+    // - Scroll down
+    // - Bilgi modal'ı aç vb.
+  };
+
   return (
     <div
       style={{
@@ -58,15 +76,29 @@ const HomePage = () => {
       >
         <TextType
           text={["Yatırım stratejisi, verinin gücüyle yazılır."]}
-          typingSpeed={75}
+          typingSpeed={50}
           pauseDuration={2000}
           deletingSpeed={50}
           loop={true}
-          forceLoop={true}
-          showCursor={true}
+          forceLoop={false}
+          showCursor={false}
           cursorCharacter="|"
           className="main-text-type"
         />
+      </div>
+
+      {/* Butonları yan yana ortada */}
+      <div
+        style={{
+          marginTop: "3rem",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "1.5rem",
+        }}
+      >
+        <GetStartedButton onClick={handleGetStarted} />
+        <LearnMoreButton onClick={handleLearnMore} />
       </div>
     </div>
   );

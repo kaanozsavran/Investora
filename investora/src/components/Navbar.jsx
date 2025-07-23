@@ -13,7 +13,7 @@ import { Link, useLocation } from "react-router-dom";
 import investoraLogo from "../assets/logo.png";
 
 const pages = [
-  { label: "Dashboard", path: "/" },
+  { label: "Ana Sayfa", path: "/" },
   { label: "Hisseler", path: "/stocks" },
   { label: "Favoriler", path: "/favorites" },
   { label: "Dönüştürücü", path: "/convert" },
