@@ -6,6 +6,7 @@ import "./css/LightRays.css";
 
 // Sayfalar
 import HomePage from "./pages/HomePage"; // Artık buradan geliyor
+import StockPage from "./pages/StockPage";
 
 // Geçici boş sayfalar:
 const Stocks = () => <div>Hisseler</div>;
@@ -40,7 +41,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/stocks" element={<Stocks />} />
+          <Route path="/stocks" element={<StockPage />} />
           <Route path="/currency" element={<Convert />} />
           <Route path="/about" element={<About />} />
         </Routes>
