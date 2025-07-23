@@ -4,7 +4,7 @@ import React from "react";
 const LearnMoreButton = ({
   onClick,
   className = "",
-  children = "Learn More",
+  children = "Daha Fazlası",
   disabled = false,
 }) => {
   return (
@@ -22,6 +22,7 @@ const LearnMoreButton = ({
         transform hover:scale-105 
         min-w-[140px]
         disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
+        hover:cursor-pointer
         ${className}
       `}
     >

@@ -15,8 +15,7 @@ import investoraLogo from "../assets/logo.png";
 const pages = [
   { label: "Ana Sayfa", path: "/" },
   { label: "Hisseler", path: "/stocks" },
-  { label: "Favoriler", path: "/favorites" },
-  { label: "Dönüştürücü", path: "/convert" },
+  { label: "Döviz", path: "/currency" },
   { label: "Hakkında", path: "/about" },
 ];
 

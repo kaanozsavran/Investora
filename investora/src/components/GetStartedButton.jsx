@@ -4,7 +4,7 @@ import React from "react";
 const GetStartedButton = ({
   onClick,
   className = "",
-  children = "Get Started",
+  children = "Hemen Başla",
   disabled = false,
 }) => {
   return (
@@ -22,6 +22,7 @@ const GetStartedButton = ({
         hover:shadow-[0_4px_15px_rgba(255,255,255,0.2)]
         min-w-[140px]
         disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
+        hover:cursor-pointer
         ${className}
       `}
     >
