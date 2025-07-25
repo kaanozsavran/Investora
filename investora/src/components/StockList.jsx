@@ -1,37 +1,75 @@
 // src/components/StockList.js
 import React from "react";
+import { Box, Typography } from "@mui/material";
 
 const trStocks = [
-  { symbol: "BIST:ASELS", name: "Aselsan" },
-  { symbol: "BIST:KRDMD", name: "Kardemir" },
-  { symbol: "BIST:THYAO", name: "Türk Hava Yolları" },
-  { symbol: "BIST:AKBNK", name: "Akbank" },
-  { symbol: "BIST:SISE", name: "Şişecam" },
-  // Listeyi ihtiyaca göre uzatabilirsin
+  { symbol: "ASELS", name: "Aselsan" },
+  { symbol: "KRDMD", name: "Kardemir" },
+  { symbol: "THYAO", name: "Türk Hava Yolları" },
+  { symbol: "AKBNK", name: "Akbank" },
+  { symbol: "SISE", name: "Şişecam" },
+  { symbol: "TUPRS", name: "Tüpraş" },
+  { symbol: "BIMAS", name: "BİM" },
+  { symbol: "KOZAL", name: "Koza Altın" },
 ];
 
-const StockList = ({ onSelect }) => {
+const StockList = ({ onSelect, selectedSymbol }) => {
   return (
-    <div>
-      <h3>Türkiye Borsası Hisseleri</h3>
-      <ul style={{ listStyle: "none", padding: 0 }}>
+    <Box
+      sx={{
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "12px",
+        padding: "20px",
+        border: "1px solid rgba(255, 255, 255, 0.2)",
+      }}
+    >
+      <Typography
+        variant="h5"
+        sx={{ color: "white", marginBottom: "20px", fontWeight: "bold" }}
+      >
+        Türkiye Borsası Hisseleri
+      </Typography>
+
+      <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         {trStocks.map((stock) => (
-          <li
+          <Box
             key={stock.symbol}
             onClick={() => onSelect(stock.symbol)}
-            style={{
+            sx={{
               cursor: "pointer",
-              margin: "8px 0",
-              padding: "4px",
-              border: "1px solid #ccc",
-              borderRadius: "4px",
+              padding: "12px 16px",
+              borderRadius: "8px",
+              border:
+                selectedSymbol === stock.symbol
+                  ? "2px solid #2196f3"
+                  : "1px solid rgba(255, 255, 255, 0.3)",
+              backgroundColor:
+                selectedSymbol === stock.symbol
+                  ? "rgba(33, 150, 243, 0.2)"
+                  : "rgba(255, 255, 255, 0.05)",
+              transition: "all 0.2s ease",
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                borderColor: "rgba(255, 255, 255, 0.5)",
+                transform: "translateY(-1px)",
+              },
             }}
           >
-            {stock.name} ({stock.symbol.replace("BIST:", "")})
-          </li>
+            <Typography
+              sx={{ color: "white", fontWeight: "600", fontSize: "16px" }}
+            >
+              {stock.name}
+            </Typography>
+            <Typography
+              sx={{ color: "rgba(255, 255, 255, 0.7)", fontSize: "14px" }}
+            >
+              {stock.symbol}
+            </Typography>
+          </Box>
         ))}
-      </ul>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
